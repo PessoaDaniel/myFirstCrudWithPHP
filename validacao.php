@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: daniel
- * Date: 05/09/19
- * Time: 10:09
- */
+
+ private $nome = $_POST[''];
+ private $anime = $_POST[''];
+ private $origem = $_POST[''];
+ private $sexo = $_POST[''];
+ private $raca = $_POST[''];
+ private $ranking = $_POST[''];
