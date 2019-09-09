@@ -8,7 +8,7 @@
         body{
             backgoun-color: #fff
         }
-        .container-fluid{
+        .container
             background-color: whitesmoke;
         }
         .form-control{
@@ -22,29 +22,22 @@
     <div class="row">
     <h1 class="col-md-12">Informações do Perssonagem</h1>
      <div>
-    <form method="post" action="validacao.php">
-        <label for="nom" class="col-md-1">NOME: </label>
-        <div class="col-md-4">
+    <form method="POST" action="validacao.php" >
+        <div class="form-group">
+            <label for="nom" class="col-md-1">NOME</label>
             <input type="text" name="cpnome" id="nom" class="form-control">
-        </div>
             <label for="ani" class="col-md-1">ANIME</label>
-        <div class="col-md-6">
             <input type="text"  name="cpanime" id="ani" class="form-control">
-        </div>
             <label for="orig" class="col-md-1">ORIGEM</label>
-        <div class="col-md-4">
             <input type="text" name="cporigem" id="orig" class="form-control">
-        </div>
         <label for="raca" class="col-md-1">RAÇA</label>
-        <div class="col-md-6">
-        <input id="raca" type="text" name="raca" class="form-control" width="50">
-        </div>
-        <div>
+        <input id="raca" type="text" name="raca" class="form-control">
         <label for="masc">MASCULINO</label>
         <input name="sexo" type="radio" id="masc" value="M">
         <label for="fem">FEMININO</label>
         <input value="F" name="sexo" type="radio" id="fem">
-        </div>
+            <label for="idade">IDADE</label>
+            <input type="number" name="idade" id="idade"  default="0">
         <label for="rank">RANK</label>
         <select id="rank" name="rank">
             <option value="SS">SS</option>
@@ -55,8 +48,8 @@
             <option value="D">D</option>
         </select>
 
-        <input type="button" class="btn btn-primary" value="Registrar" action="validacao.php">
-
+        <button  class="btn btn-primary btn-lg" type="submit">Large button</button>
+        </div>
     </form>
     </div>
 </div>
