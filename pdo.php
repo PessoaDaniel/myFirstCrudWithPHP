@@ -9,7 +9,7 @@
  }*/	
 
 
-$pdo = new PDO("mysql: dbname=projeto; host=localhost","root","");
+$pdo = new PDO("mysql:dbname=projeto;host=localhost","root","");
  
 $sql ='INSERT INTO perssonagens(nome,anime,origem,sexo,ranking,descricaopersonagem) VALUES(?,?,?,?,?,?)'; 
 
@@ -21,11 +21,9 @@ $stmt->bindValue(4,'Desconhecida');
 $stmt->bindValue(5,'S');
 $stmt->bindValue(6,'Qualquer_coisa');
 try {
-	if ($stmt->execute()){
+	$stmt->execute();
 	echo 'sucesso';
-} else{
-	echo 'erro';
-}
+
 } catch (Exception $e) {
 	echo $e->getMenssage();
 }
