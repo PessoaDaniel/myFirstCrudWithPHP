@@ -1,14 +1,12 @@
 <?php
-include'cadastropersonagem.html';
-//function setPersonagem(){
-    $nome = "texto teste";
+include 'pdo.php';
+    $nome = $_POST['cpnome'];
     $anime = $_POST['cpanime'];
-    $origem = $_POST[''];
-    $sexo = $_POST[''];
-    $raca = $_POST[''];
-    $ranking = $_POST[''];
-    $descpersona = $_POST[''];
-    $idade = $_POST[''];
-//}
+    $origem = $_POST['cporigem'];
+    $sexo = $_POST['sexo'];
+    $rank = $_POST['rank'];
 
-echo $nome;
+
+
+    _createPersonagem($nome,$anime,$origem,$sexo,$rank);
+
