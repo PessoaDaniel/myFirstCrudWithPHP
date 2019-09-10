@@ -1,16 +1,33 @@
-<?php
+ <?php
+ /*try {
+	 
+	 echo 'conexão bem sucedida';
+ } catch (PDOException $e) {
 
-function getConection(){
-	$dsn = ('mysql: host=127.0.0.1; viewport=3306; dbname=projeto; charset=utf8');
-	$user = 'root';
-	$pass = '';
-	try{
-		$pdo = new PDO($dsn, $user, $pass);
-		return $pdo;
-	}
-		catch(PDOException $ex){
-			echo 'Erro: ' .$ex-> getMessage();
-	}
-}  
+ 	echo $e->getMenssage();
+ 	
+ }*/	
 
 
+$pdo = new PDO("mysql: dbname=projeto; host=localhost","root","");
+ 
+$sql ='INSERT INTO perssonagens(nome,anime,origem,sexo,ranking,descricaopersonagem) VALUES(?,?,?,?,?,?)'; 
+
+$stmt=$pdo->prepare($sql);
+$stmt->bindValue(1,'Zero_TWO');
+$stmt->bindValue(2,'Darling in the Franxx');
+$stmt->bindValue(3,'F');
+$stmt->bindValue(4,'Desconhecida');
+$stmt->bindValue(5,'S');
+$stmt->bindValue(6,'Qualquer_coisa');
+try {
+	if ($stmt->execute()){
+	echo 'sucesso';
+} else{
+	echo 'erro';
+}
+} catch (Exception $e) {
+	echo $e->getMenssage();
+}
+
+?>
