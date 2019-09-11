@@ -1,7 +1,7 @@
  <?php
 //--------------------Conexão-------------------------------------------------------------------------------------------
     function _conection(){
-    $pdo = new PDO("mysql:dbname=projeto;host=127.0.0.1;charset=utf8","root","");
+    $pdo = new PDO("mysql:dbname=projeto;host=127.0.0.1;charset=utf8","root","12345");
     return $pdo;
 }
 //--------------------Create--------------------------------------------------------------------------------------------
@@ -16,10 +16,15 @@ $stmt->bindValue(4,$sexop);
 $stmt->bindValue(5,$rankp);
 $stmt->execute();
 }
-function _cadastropoder(){
-$sql ='INSERT INTO poderes(nome,anime,origem,sexo,ranking) VALUES()';
+function _cadastropoder($nomepoder,$elemento,$categoria,$atributo){
+$sql ='INSERT INTO poderes(nomepoder,elemento,categoria,atributo) VALUES(?,?,?,?)';
     $con2 =_conection();
-
+    $stmt = $con2->prepare($sql);
+    $stmt->bindValue(1,$nomepoder);
+    $stmt->bindValue(2,$elemento);
+    $stmt->bindValue(3,$categoria);
+    $stmt->bindValue(4,$atributo);
+    $stmt->execute();
 }
 
 /*

@@ -9,7 +9,7 @@
     <h1>Digite os Dados do Podeer</h1>
 
     <div class="form-group">
-        <form method="post" action="validacao.php" id="poder-form">
+        <form method="post" action="poderes.php">
             <lable for="nom">Nome</lable>
             <input type="text" name="nome_poder" id="nom" class="form-control">
             <label for="elmnt">Elemento</label>
@@ -17,16 +17,14 @@
             <label for="atbt">Atributo</label>
             <input type="text" id="atbt" name="atributo" class="form-control">
             <label for="categ">Categoria</label>
-            <input type="text" id="categ"  class="form-control">
+            <input type="text" id="categ"  class="form-control" name="categoria">
             <label for="cat">Catalizador</label>
-            <input type="text" id="cat" name="categoria" class="form-control">
-            <lable for="desc" fixed="top">Descrição</lable>
-            <textarea cols="30" rows="30" id="desc" form="poder-form">
+            <input type="text " class="form-control" name="cat" id="cat" >
 
-            </textarea>
+
             <br/>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-            <button type="reset" class="btn btn-ligth" href="cadstropoderes.html">Cancelar</button>
+            <button type="submit" class="btn btn-primary" >Cadastrar</button>
+            <button type="reset" class="btn btn-ligth" href="cadstropoderes.html" >Cancelar</button>
         </form>
     </div>
     </div>
