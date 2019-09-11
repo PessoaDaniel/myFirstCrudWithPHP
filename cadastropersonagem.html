@@ -22,7 +22,7 @@
     <div class="row">
     <h1 class="col-md-12">Informações do Perssonagem</h1>
      <div>
-    <form method="POST" action="perssonagem.php" >
+    <form method="POST" action="perssonagem.php" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nom" class="col-md-1">NOME</label>
             <input type="text" name="cpnome" id="nom" class="form-control">
@@ -30,6 +30,7 @@
             <input type="text"  name="cpanime" id="ani" class="form-control">
             <label for="orig" class="col-md-1">ORIGEM</label>
             <input type="text" name="cporigem" id="orig" class="form-control">
+            <br/>
         <label for="masc">MASCULINO</label>
         <input name="sexo" type="radio" id="masc" value="M">
         <label for="fem">FEMININO</label>
@@ -43,8 +44,11 @@
             <option value="C">C</option>
             <option value="D">D</option>
         </select>
-
-        <button  class="btn btn-primary btn-lg" type="submit">Large button</button>
+            <br/>
+            <label for="up">Adicione foto do Personagem</label>
+            <input type="file" name="foto" id="up">
+            <br/>
+        <button  class="btn btn-primary btn-lg" type="submit">Cadastrar</button>
         </div>
     </form>
     </div>

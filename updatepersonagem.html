@@ -2,58 +2,32 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Personagens</title>
-    <style>
-        
-        body{
-            backgoun-color: #fff
-        }
-        .container
-            background-color: whitesmoke;
-        }
-        .form-control{
-            width: 350px;
-        }
-        
-    </style>
+    <title>Cadastro de Poderes</title>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-    <h1 class="col-md-12">Informações do Perssonagem</h1>
-     <div>
-    <form method="POST" action="poderes.php" >
-        <div class="form-group">
-            <label for="nom" class="col-md-1">NOME</label>
-            <input type="text" name="cpnome" id="nom" class="form-control">
-            <label for="ani" class="col-md-1">ANIME</label>
-            <input type="text"  name="cpanime" id="ani" class="form-control">
-            <label for="orig" class="col-md-1">ORIGEM</label>
-            <input type="text" name="cporigem" id="orig" class="form-control">
-        <label for="raca" class="col-md-1">RAÇA</label>
-        <input id="raca" type="text" name="raca" class="form-control">
-        <label for="masc">MASCULINO</label>
-        <input name="sexo" type="radio" id="masc" value="M">
-        <label for="fem">FEMININO</label>
-        <input value="F" name="sexo" type="radio" id="fem">
-            <label for="idade">IDADE</label>
-            <input type="number" name="idade" id="idade"  default="0">
-        <label for="rank">RANK</label>
-        <select id="rank" name="rank">
-            <option value="SS">SS</option>
-            <option value="S">S</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-        </select>
+    <div class="container">
+    <h1>Digite os Dados do Podeer</h1>
 
-        <button  class="btn btn-primary btn-lg" type="submit">Large button</button>
-        </div>
-    </form>
+    <div class="form-group">
+        <form method="post" action="poderes.php">
+            <lable for="nom">Nome</lable>
+            <input type="text" name="nome_poder" id="nom" class="form-control">
+            <label for="elmnt">Elemento</label>
+            <input type="text" name="elemento" id="elmnt" class="form-control">
+            <label for="atbt">Atributo</label>
+            <input type="text" id="atbt" name="atributo" class="form-control">
+            <label for="categ">Categoria</label>
+            <input type="text" id="categ"  class="form-control" name="categoria">
+            <label for="cat">Catalizador</label>
+            <input type="text " class="form-control" name="cat" id="cat" >
+
+
+            <br/>
+            <button type="submit" class="btn btn-primary" >Cadastrar</button>
+            <button type="reset" class="btn btn-ligth" href="cadstropoderes.html" >Cancelar</button>
+        </form>
     </div>
-</div>
-</div>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </body>
 </html>
