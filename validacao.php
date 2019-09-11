@@ -7,6 +7,10 @@ include 'pdo.php';
     $rank = $_POST['rank'];
 
 
-
-    _createPersonagem($nome,$anime,$origem,$sexo,$rank);
+try {
+	_createPersonagem($nome,$anime,$origem,$sexo,$rank);
+} catch (Exception $e) {
+	echo $e->getMenssage();
+}
+    
 
