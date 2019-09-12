@@ -1,7 +1,7 @@
  <?php
 //--------------------Conexão-------------------------------------------------------------------------------------------
     function _conection(){
-    $pdo = new PDO("mysql:dbname=projeto;host=127.0.0.1;charset=utf8","root","");
+    $pdo = new PDO("mysql:dbname=projeto;host=127.0.0.1;charset=utf8","root","12345");
     return $pdo;
 }
 //--------------------Create--------------------------------------------------------------------------------------------
@@ -30,16 +30,11 @@ $sql ='INSERT INTO poderes(nomepoder,elemento,categoria,atributo) VALUES(?,?,?,?
 
 //-------------------Read-----------------------------------------------------------------------------------------------
 function _listnome(){
-$sql="SELECT nome FROM perssonagens WHERE id =:id";
-$res=_conection()->prepare($sql);
-$id = 1;
-$res->bindValue(':id',$id);
-$res->execute();
-$result=$res->fetch(PDO::FETCH_ASSOC);
+$sql="SELECT * FROM perssonagens ORDER BY nome";
+$res=_conection()->query($sql);
+$info =$res->fetchAll(PDO::FETCH_ASSOC);
+return $info;
 
-foreach ($result as $key => $value){
-    echo "$key". ":"."$value.<br>";
-}
 }
 /*
 //--------------------Update--------------------------------------------------------------------------------------------
