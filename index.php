@@ -27,12 +27,12 @@
         <tbody>
         <tr>
         	
-            <th scope="Lista"><?php
+            <th scope="Lista">1</th>
+            <td>
+                <?php
             	_listnome();
 
-            	?></th>
-            <td>
-     
+            	?>
             </td>
             <td>teste</td>
             <td>teste</td>

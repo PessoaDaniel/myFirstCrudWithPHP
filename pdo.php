@@ -32,10 +32,11 @@ $sql ='INSERT INTO poderes(nomepoder,elemento,categoria,atributo) VALUES(?,?,?,?
 function _listnome(){
 $sql="SELECT nome FROM perssonagens WHERE id =:id";
 $res=_conection()->prepare($sql);
-//$res->bindValue(':x','*');
-$res->bindValue(':id',1);
+$id = 1;
+$res->bindValue(':id',$id);
 $res->execute();
 $result=$res->fetch(PDO::FETCH_ASSOC);
+
 foreach ($result as $key => $value){
     echo "$key". ":"."$value.<br>";
 }
