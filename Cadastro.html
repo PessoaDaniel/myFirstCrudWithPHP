@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Personagens</title>
+    <style>
+        
+        body{
+            backgoun-color: #fff
+        }
+        .container-fluid{
+            background-color: whitesmoke;
+        }
+        .form-control{
+            width: 350px;
+        }
+        
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+    <h1 class="col-md-12">Informações do Perssonagem</h1>
+     <div>
+    <form method="post" action="validacao.php">
+        <label for="nom" class="col-md-1">NOME: </label>
+        <div class="col-md-4">
+            <input type="text" name="cpnome" id="nom" class="form-control">
+        </div>
+            <label for="ani" class="col-md-1">ANIME</label>
+        <div class="col-md-6">
+            <input type="text"  name="cpanime" id="ani" class="form-control">
+        </div>
+            <label for="orig" class="col-md-1">ORIGEM</label>
+        <div class="col-md-4">
+            <input type="text" name="cporigem" id="orig" class="form-control">
+        </div>
+        <label for="raca" class="col-md-1">RAÇA</label>
+        <div class="col-md-6">
+        <input id="raca" type="text" name="raca" class="form-control" width="50">
+        </div>
+        <div>
+        <label for="masc">MASCULINO</label>
+        <input name="sexo" type="radio" id="masc" value="M">
+        <label for="fem">FEMININO</label>
+        <input value="F" name="sexo" type="radio" id="fem">
+        </div>
+        <label for="rank">RANK</label>
+        <select id="rank" name="rank">
+            <option value="SS">SS</option>
+            <option value="S">S</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+
+        <input type="button" class="btn btn-primary" value="Registrar">
+
+    </form>
+    </div>
+</div>
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</body>
+</html>
