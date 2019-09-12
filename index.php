@@ -27,8 +27,8 @@ include 'pdo.php';
     <tbody>
     <tr>
         <?php
-        $dados = _listnome();
-        if (count($dados > 0)) {
+        $dados = _buscadados();
+        if (count($dados) > 0) {
             for ($i = 0; $i < count($dados); $i++) {
                 echo "<tr>";
                 foreach ($dados[$i] as $key => $value) {
@@ -44,7 +44,15 @@ include 'pdo.php';
                     <a href="infoPersona.php">
                         <button class="btn btn-dark">Ver</button>
                     </a>
+                    <a href="index.php?id=<?php echo $dados[$i] ['id']; ?> "> Excluir</a>
+                    <?php
 
+                    if(isset($_GET['id'])){
+                        $idperssona = $_GET['id'];
+
+
+                    }
+                    ?>
                 </td>
                 <?php
                 echo "</tr>";
@@ -62,5 +70,6 @@ include 'pdo.php';
 </div>
 </div>
 <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 </body>
 </html>
