@@ -10,47 +10,44 @@ include 'pdo.php';
 ?>
 <div class="container">
 
-    <h1>Lista de Personagens</h1>
+    <h1>Poderes</h1>
 
 
 <table class="table">
     <thead class="thead-dark">
     <tr>
         <th scope="col">Nome</th>
-        <th scope="col">Anime</th>
-        <th scope="col">Origem</th>
-        <th scope="col">Sexo</th>
-        <th scope="col">Ranking</th>
+        <th scope="col">Elemento</th>
+        <th scope="col">Atributo</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Catalizador</th>
     </tr>
 
     </thead>
     <tbody>
     <tr>
         <?php
-        $dados = _buscapoderes();
-        if (count($dados) > 0) {
-            for ($i = 0; $i < count($dados); $i++) {
+        $poderes = _buscapoderes();
+        if (count($poderes) > 0) {
+            for ($i = 0; $i < count($poderes); $i++) {
                 echo "<tr>";
-                foreach ($dados[$i] as $key => $value) {
+                foreach ($poderes[$i] as $key => $value) {
                     if ($key != "id") {
                         echo "<td>" . $value . "</td>";
                     }
                 }
                 ?>
                 <td>
-
+                    <?php echo $poderes[$i] ['id']; ?>
                     <a href="updatepersonagem.html">
                         <button class="btn btn-dark">Editar</button>
                     </a>
-                    <a href="infoPersona.php">
-                        <button class="btn btn-dark">Habilidades</button>
-                    </a>
-                    <a href="index.php?id=<?php echo $dados[$i] ['id']; ?> "><button class="btn btn-dark">Excluir</button></a>
+                    <a href="listapoderes.php?pod=<?php echo $poderes[$i]['id']; ?> "><button class="btn btn-dark">Excluir</button></a>
                     <?php
-                    if(isset($_GET['id'])){
-                        $idperssona = $_GET['id'];
-                        $p = _deletepessona($idperssona);
-                        header('location:index.php');
+                    if(isset($_GET['pod'])){
+                        $idperssona = $_GET['pod'];
+                        $p = _deletepoder($idperssona);
+                        header('location:listapoderes.php');
 
                     }
                     ?>
@@ -65,8 +62,8 @@ include 'pdo.php';
     </tbody>
 </table>
 <div>
-    <a href="cadastropersonagem.html">
-        <button class="btn btn-primary">Cadastrar Novo Heroi</button>
+    <a href="cadastropoderes.html">
+        <button class="btn btn-primary">Cadastrar novo Poder</button>
     </a>
 </div>
 </div>

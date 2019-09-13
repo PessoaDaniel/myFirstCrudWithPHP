@@ -22,13 +22,14 @@ function _createPersonagem($nomep, $animep, $origemp, $sexop, $rankp)
 
 function _cadastropoder($nomepoder, $elemento, $categoria, $atributo)
 {
-    $sql = 'INSERT INTO poderes(nomepoder,elemento,categoria,atributo) VALUES(?,?,?,?)';
+    $sql = 'INSERT INTO teste(nome,elemento,categoria,atrib,catalizador) VALUES(?,?,?,?,?)';
     $con2 = _conection();
     $stmt = $con2->prepare($sql);
     $stmt->bindValue(1, $nomepoder);
     $stmt->bindValue(2, $elemento);
     $stmt->bindValue(3, $categoria);
     $stmt->bindValue(4, $atributo);
+    $stmt->bindValue(5,$catalizador);
     $stmt->execute();
 }
 
@@ -45,9 +46,9 @@ function _buscadados()
 
 function _buscapoderes()
 {
-    $sql = "SELECT * FROM poderes ORDER BY nome";
-    $res = _conection()->exec($sql);
-    $pod = $res->fetch(PDO::FETCH_ASSOC);
+    $sql = "SELECT * FROM teste ORDER BY nome";
+    $res = _conection()->query($sql);
+    $pod = $res->fetchAll(PDO::FETCH_ASSOC);
     return $pod;
 }
 /*
@@ -70,5 +71,13 @@ function _deletepessona($id)
     $res->execute();
 }
 
+function _deletepoder($idp)
+{
+
+    $sql = "DELETE FROM teste WHERE   id = :id";
+    $res = _conection()->prepare($sql);
+    $res->bindValue(':id', $idp);
+    $res->execute();
+}
 
 

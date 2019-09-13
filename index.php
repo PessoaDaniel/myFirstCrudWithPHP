@@ -42,7 +42,7 @@ include 'pdo.php';
                     <a href="updatepersonagem.html">
                         <button class="btn btn-dark">Editar</button>
                     </a>
-                    <a href="listapoderes.php">
+                    <a href="listapoderes.php?a=<?php ?>">
                         <button class="btn btn-dark">Habilidades</button>
                     </a>
                     <a href="index.php?id=<?php echo $dados[$i] ['id']; ?> "><button class="btn btn-dark">Excluir</button></a>
