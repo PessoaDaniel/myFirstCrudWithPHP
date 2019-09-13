@@ -7,6 +7,8 @@ $sexo = $_POST['sexo'];
 $rank = $_POST['rank'];
 try {
     _createPersonagem($nome, $anime, $origem, $sexo, $rank);
+    header('location:index.php');
 } catch (Exception $e) {
     echo $e->getMenssage();
 }
+

@@ -43,6 +43,13 @@ function _buscadados()
 
 }
 
+function _buscapoderes()
+{
+    $sql = "SELECT * FROM poderes ORDER BY nome";
+    $res = _conection()->exec($sql);
+    $pod = $res->fetch(PDO::FETCH_ASSOC);
+    return $pod;
+}
 /*
 //--------------------Update--------------------------------------------------------------------------------------------
     $sql= "UPDATE perssonagens SET sexo = :o WHERE id = :id ";

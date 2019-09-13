@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Herois</title>
+    <title>lista de poderes</title>
 </head>
 <body>
 <?php
@@ -27,7 +27,7 @@ include 'pdo.php';
     <tbody>
     <tr>
         <?php
-        $dados = _buscadados();
+        $dados = _buscapoderes();
         if (count($dados) > 0) {
             for ($i = 0; $i < count($dados); $i++) {
                 echo "<tr>";
@@ -42,12 +42,11 @@ include 'pdo.php';
                     <a href="updatepersonagem.html">
                         <button class="btn btn-dark">Editar</button>
                     </a>
-                    <a href="listapoderes.php">
+                    <a href="infoPersona.php">
                         <button class="btn btn-dark">Habilidades</button>
                     </a>
                     <a href="index.php?id=<?php echo $dados[$i] ['id']; ?> "><button class="btn btn-dark">Excluir</button></a>
                     <?php
-
                     if(isset($_GET['id'])){
                         $idperssona = $_GET['id'];
                         $p = _deletepessona($idperssona);
