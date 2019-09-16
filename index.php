@@ -39,17 +39,17 @@ include 'pdo.php';
                 ?>
                 <td>
 
-                    <a href="updatepersonagem.html">
+                    <a href="updatepersonagem.php?pes=<?php echo $dados[$i]['id']; ?> "">
                         <button class="btn btn-dark">Editar</button>
                     </a>
-                    <a href="listapoderes.php?a=<?php echo $dados[$i] ['id'];?>"><button class="btn btn-dark">Habilidades</button>
+                    <a href="listapoderes.php?a=<?php echo $dados[$i]['id'];?>"><button class="btn btn-dark">Habilidades</button>
                     </a>
                     <?php
                     if(isset($_GET['a'])){
                         header('listapoderes.php');
                     }
                     ?>
-                    <a href="index.php?id=<?php echo $dados[$i] ['id']; ?> "><button class="btn btn-dark">Excluir</button></a>
+                    <a href="index.php?id=<?php echo $dados[$i]['id']; ?> "><button class="btn btn-dark">Excluir</button></a>
                     <?php
 
                     if(isset($_GET['id'])){
@@ -58,7 +58,7 @@ include 'pdo.php';
                         header('location:index.php');
 
                     }
-                    ?>+                </td>
+                    ?> </td>
                 <?php
                 echo "</tr>";
             }

@@ -5,10 +5,18 @@ $anime = $_POST['cpanime'];
 $origem = $_POST['cporigem'];
 $sexo = $_POST['sexo'];
 $rank = $_POST['rank'];
-try {
-    _createPersonagem($nome, $anime, $origem, $sexo, $rank);
-    header('location:index.php');
-} catch (Exception $e) {
-    echo $e->getMenssage();
+$var = $_GET['pes'];
+
+if(isset($_GET['pes'])) {
+
+_atualizardadospersona($nome,$anime,$origem,$sexo,$rank,$var);
+
+} else {
+    try {
+        _createPersonagem($nome, $anime, $origem, $sexo, $rank);
+        header('location:index.php');
+    } catch (Exception $e) {
+        echo $e->getMenssage();
+    }
 }
 

@@ -28,9 +28,11 @@ include 'pdo.php';
     <tbody>
     <tr>
         <?php
+        if(isset($_GET['a'])){
         $podpers = $_GET['a'];
-        $poderes = _buscapoderes($podpers);
-        var_dump($poderes); 
+        }
+       // print $podpers; die($podpers);
+        $poderes -> _buscapoderes($podpers);
         if (count($poderes) > 0) {
             for ($i = 0; $i < count($poderes); $i++) {
                 echo "<tr>";
@@ -42,7 +44,7 @@ include 'pdo.php';
                 ?>
                 <td>
                     <?php echo $poderes[$i] ['id']; ?>
-                    <a href="updatepersonagem.html">
+                    <a href="updatepoder.php">
                         <button class="btn btn-dark">Editar</button>
                     </a>
                     <a href="listapoderes.php?pod=<?php echo $poderes[$i]['id']; ?> "><button class="btn btn-dark">Excluir</button></a>
