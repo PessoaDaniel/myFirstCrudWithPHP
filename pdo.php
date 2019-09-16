@@ -2,7 +2,7 @@
 //--------------------Conexão-------------------------------------------------------------------------------------------
 function _conection()
 {
-    $pdo = new PDO("mysql:dbname=projeto;host=127.0.0.1;charset=utf8", "root", "12345");
+    $pdo = new PDO("mysql:dbname=projeto;host=127.0.0.1;charset=utf8","root","");
     return $pdo;
 }
 
@@ -20,17 +20,19 @@ function _createPersonagem($nomep, $animep, $origemp, $sexop, $rankp)
     $stmt->execute();
 }
 
-function _cadastropoder($nomepoder, $elemento, $categoria, $atributo)
+function _cadastropoder($nomepoder, $elemento, $categoria, $atributo,$cat)
 {
-    $sql = 'INSERT INTO teste(nome,elemento,categoria,atrib,catalizador) VALUES(?,?,?,?,?)';
+  $sql = 'INSERT INTO teste(nome,elemento,categoria,atributo,catalizador) VALUES(?,?,?,?,?)';
     $con2 = _conection();
     $stmt = $con2->prepare($sql);
     $stmt->bindValue(1, $nomepoder);
     $stmt->bindValue(2, $elemento);
     $stmt->bindValue(3, $categoria);
     $stmt->bindValue(4, $atributo);
-    $stmt->bindValue(5,$catalizador);
+    $stmt->bindValue(5,$cat);
     $stmt->execute();
+    
+
 }
 
 
@@ -44,13 +46,18 @@ function _buscadados()
 
 }
 
-function _buscapoderes()
+
+function _buscapoderes($id)
 {
-    $sql = "SELECT * FROM teste ORDER BY nome";
-    $res = _conection()->query($sql);
-    $pod = $res->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "SELECT * FROM poderes WHERE id = :id ORDER BY nome";
+    $res = _conection()->prepare($sql);
+    $res->bindValue(':id',$id);
+    $res->execute();
+    $pod = $res->fetch(PDO::FETCH_ASSOC);
     return $pod;
 }
+
 /*
 //--------------------Update--------------------------------------------------------------------------------------------
     $sql= "UPDATE perssonagens SET sexo = :o WHERE id = :id ";

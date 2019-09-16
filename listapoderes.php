@@ -7,6 +7,7 @@
 <body>
 <?php
 include 'pdo.php';
+
 ?>
 <div class="container">
 
@@ -27,7 +28,9 @@ include 'pdo.php';
     <tbody>
     <tr>
         <?php
-        $poderes = _buscapoderes();
+        $podpers = $_GET['a'];
+        $poderes = _buscapoderes($podpers);
+        var_dump($poderes); 
         if (count($poderes) > 0) {
             for ($i = 0; $i < count($poderes); $i++) {
                 echo "<tr>";

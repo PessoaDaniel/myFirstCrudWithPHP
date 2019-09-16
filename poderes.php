@@ -7,11 +7,11 @@ $nome_poder = $_POST['nome_poder'];
 $elemento = $_POST['elemento'];
 $atrib = $_POST['atributo'];
 $categoria = $_POST['categoria'];
-$catalizador = $_POST['cat'];
-$rel = $persona;
+$cat = $_POST['cat'];
+//$rel = $persona;
 
         try{
-            _cadastropoder($nome_poder,$elemento,$categoria,$atrib,$rel);
+            _cadastropoder($nome_poder,$elemento,$categoria,$atrib,$cat);
             header('location:listapoderes.php');
         } catch(Exception $e2){
             echo $e2->getMessage();
