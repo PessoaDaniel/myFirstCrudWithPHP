@@ -28,11 +28,9 @@ include 'pdo.php';
     <tbody>
     <tr>
         <?php
-        if(isset($_GET['a'])){
+
         $podpers = $_GET['a'];
-        }
-       // print $podpers; die($podpers);
-        $poderes -> _buscapoderes($podpers);
+        $poderes = _buscapoderes($podpers);
         if (count($poderes) > 0) {
             for ($i = 0; $i < count($poderes); $i++) {
                 echo "<tr>";
@@ -43,22 +41,19 @@ include 'pdo.php';
                 }
                 ?>
                 <td>
-                    <?php echo $poderes[$i] ['id']; ?>
-                    <a href="updatepoder.php">
-                        <button class="btn btn-dark">Editar</button>
-                    </a>
-                    <a href="listapoderes.php?pod=<?php echo $poderes[$i]['id']; ?> "><button class="btn btn-dark">Excluir</button></a>
+                    <a href="listapoderes.php?pod=<?php $poderes[$i]['id'];?>&a=<?=$podpers;?>"><button class="btn btn-dark">Excluir</button></a>
                     <?php
                     if(isset($_GET['pod'])){
+                        $podpers=$_GET['a'];
                         $idperssona = $_GET['pod'];
                         $p = _deletepoder($idperssona);
-                        header('location:listapoderes.php');
+                        header("location:listapoderes.php?a=$podpers");
 
                     }
                     ?>
                 </td>
                 <?php
-                echo "</tr>";
+              echo "</tr>";
             }
 
         }
@@ -67,8 +62,11 @@ include 'pdo.php';
     </tbody>
 </table>
 <div>
-    <a href="cadastropoderes.html">
+    <a href="cadastropoderes.php?a=<?=$podpers;?>">
         <button class="btn btn-primary">Cadastrar novo Poder</button>
+    </a>
+    <a href="index.php?a=<?=$podpers;?>">
+        <button class="btn btn-ligth">Voltar</button>
     </a>
 </div>
 </div>

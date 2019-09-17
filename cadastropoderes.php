@@ -7,9 +7,11 @@
 <body>
     <div class="container">
     <h1>Digite os Dados do Podeer</h1>
-
+        <?php
+        $id=$_GET['a'];
+        ?>
     <div class="form-group">
-        <form method="post" action="poderes.php">
+        <form method="post" action="poderes.php?a=<?=$id?>">
             <lable for="nom">Nome</lable>
             <input type="text" name="nome_poder" id="nom" class="form-control">
             <label for="elmnt">Elemento</label>
@@ -23,8 +25,11 @@
 
 
             <br/>
-            <button type="submit" class="btn btn-primary" >Cadastrar</button>
-            <button type="reset" class="btn btn-ligth" href="cadstropoderes.html" >Cancelar</button>
+            <a href="listapoderes.php?a=<?=$id?>">
+            <button type="submit" class="btn btn-primary" >Cadastrar</button></a>
+            <a href="listapoderes.php?a=<?=$id;?>">
+                <button class="btn btn-ligth">Cancelar</button>
+            </a>
         </form>
     </div>
     </div>

@@ -20,18 +20,23 @@ function _createPersonagem($nomep, $animep, $origemp, $sexop, $rankp)
     $stmt->execute();
 }
 
-function _cadastropoder($nomepoder, $elemento, $categoria, $atributo,$cat)
+function _cadastropoder($nomepoder, $elemento, $categoria, $atributo,$cat,$idp)
 {
-  $sql = 'INSERT INTO teste (nome,elemento,categoria,atributo,catalizador) VALUES(?,?,?,?,?)';
+    try{
+    $sql = 'INSERT INTO teste(nome,elemento,categoria,atributo,catalizador,idpersonagem) VALUES(?,?,?,?,?,?)';
     $con2 = _conection();
     $stmt = $con2->prepare($sql);
-    $stmt->bindValue(1, $nomepoder);
-    $stmt->bindValue(2, $elemento);
-    $stmt->bindValue(3, $categoria);
+    $stmt->bindParam(1, $nomepoder);
+    $stmt->bindParam(2, $elemento);
+    $stmt->bindParam(3, $categoria);
     $stmt->bindValue(4, $atributo);
     $stmt->bindValue(5,$cat);
+    $stmt->bindValue(6,$idp);
     $stmt->execute();
-    
+    }catch (\Exception $e){
+        print $e->getMessage();
+
+    }
 
 }
 
@@ -56,49 +61,50 @@ function _buscadadospessoa($id){
 
 function _buscapoderes($id)
 {
-
-    $sql = "SELECT * FROM teste WHERE idpersonagem = :id ORDER BY nome";
-    $res = _conection()->prepare($sql);
+    $sql="SELECT nome,elemento,categoria,atributo,catalizador FROM teste WHERE idpersonagem = :id ";
+    $res=_conection()->prepare($sql);
     $res->bindValue(':id',$id);
     $res->execute();
-    $pod = $res->fetchAll(PDO::FETCH_ASSOC);
-    return $pod;
+    $dado= $res->fetchAll(PDO::FETCH_ASSOC);
+    return $dado;
 }
 
 
 //--------------------Update--------------------------------------------------------------------------------------------
 function _atualizardadospersona($n,$a,$o,$s,$r,$id)
 {
-
-
-        $sql = "UPDATE perssonagens SET nome = :n, anime = :a, origem= :o sexo = :s, ranking = :r   WHERE id = :id ";
+    try{
+        $sql = "UPDATE perssonagens SET nome = :n, anime = :a, origem= :o, sexo = :s, ranking = :r   WHERE id = :id ";
         $res = _conection()->prepare($sql);
-        $res->bindValue(':n', $n);
-        $res->bindValue(':a', $a);
-        $res->bindValue(':o', $o);
-        $res->bindValue(':s', $s);
-        $res->bindValue(':r', $r);
-        $res->bindValue(':id', $id);
+        $res->bindParam(":n",$n,PDO::PARAM_STR);
+        $res->bindParam(':a', $a,PDO::PARAM_STR);
+        $res->bindParam(':s', $s,PDO::PARAM_STR);
+        $res->bindParam(':o', $o,PDO::PARAM_STR);
+        $res->bindParam(':r', $r,PDO::PARAM_STR);
+        $res->bindParam(':id', $id,PDO::PARAM_INT);
         $res->execute();
+    } catch (Exception $e){
+        print $e->getMessage();
+    }
 
 
 }//--------------------Delete--------------------------------------------------------------------------------------------
 
-    function _deletepessona($id)
-    {
-        $sql = "DELETE FROM perssonagens WHERE   id = :id";
-        $res = _conection()->prepare($sql);
-        $res->bindValue(':id', $id);
-        $res->execute();
-    }
+function _deletepessona($id)
+{
+    $sql = "DELETE FROM perssonagens WHERE   id = :id";
+    $res = _conection()->prepare($sql);
+    $res->bindValue(':id', $id);
+    $res->execute();
+}
 
-    function _deletepoder($idp)
-    {
+function _deletepoder($idp)
+{
 
-        $sql = "DELETE FROM teste WHERE   id = :id";
-        $res = _conection()->prepare($sql);
-        $res->bindValue(':id', $idp);
-        $res->execute();
-    }
+    $sql = "DELETE FROM teste WHERE   id = :id";
+    $res = _conection()->prepare($sql);
+    $res->bindValue(':id', $idp);
+    $res->execute();
+}
 
 

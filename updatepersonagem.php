@@ -24,12 +24,11 @@
      <div>
          <?php
          include'pdo.php';
-         if(isset($_GET['pes'])){
-             $dado=$_GET['pes'];
+            $dado=$_GET['pes'];
              $inf = _buscadadospessoa($dado);
-         }
+
          ?>
-    <form method="POST" action="perssonagem.php" enctype="multipart/form-data">
+    <form method="POST" action="perssonagem.php?pes=<?=$dado?>" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nom" class="col-md-1">NOME</label>
             <input type="text" name="cpnome" id="nom" class="form-control" value="<?=$inf["nome"]?>">
@@ -66,6 +65,9 @@
             <input type="file" name="foto" id="up">
             <br/>
         <button  class="btn btn-primary btn-lg" type="submit">Atualizar</button>
+            <a href=index.php?a=<?=$dado;?>">
+                <button class="btn btn-ligth">Cancelar</button>
+            </a>
         </div>
     </form>
     </div>

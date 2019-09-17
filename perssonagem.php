@@ -5,12 +5,11 @@ $anime = $_POST['cpanime'];
 $origem = $_POST['cporigem'];
 $sexo = $_POST['sexo'];
 $rank = $_POST['rank'];
-$var = $_GET['pes'];
-
-if(isset($_GET['pes'])) {
-
-_atualizardadospersona($nome,$anime,$origem,$sexo,$rank,$var);
-
+$dado=$_GET['pes'];
+if(isset($dado)) {
+    _atualizardadospersona($nome,$anime,$origem,$sexo,$rank,$dado);
+//    _atualizardadospersona($nome,$anime,$origem,$sexo,$rank,$dado);
+    header('location:index.php');
 } else {
     try {
         _createPersonagem($nome, $anime, $origem, $sexo, $rank);
