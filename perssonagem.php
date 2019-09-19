@@ -13,7 +13,8 @@ if(isset($dado)) {
 } else {
     try {
         _createPersonagem($nome, $anime, $origem, $sexo, $rank);
-        header('location:index.php');
+
+      header('location:index.php');
     } catch (Exception $e) {
         echo $e->getMenssage();
     }
