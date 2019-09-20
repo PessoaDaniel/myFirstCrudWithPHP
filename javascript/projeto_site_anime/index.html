@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <title>ANIWORLD</title>
+    <style>
+        img#logo_nome_index {
+            position: fixed;
+        }
+        body{
+            background:;
+        }
+        button#mdcadastro{
+            background: darkblue;
+            color: white;
+            font-size: 20pt;
+            text-align: center;
+            padding: 5px 35px;
+            border-radius: 25px;
+            border: none;
+        }
+        div.mdl-containner{
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,.3);
+            position: fixed;
+            top:0px;
+            left: 0px;
+            z-index: 3000;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+        }
+        div#mdl-inf{
+            background:white;
+            border-radius: 30px;
+            padding: 50px 5px;
+            background-image: url("aniworld_img/MODAL-IMG.png " );
+            background-position: center;
+            width: 500px;
+            height: 350px;
+            font-family: "Bitstream Charter";
+            position: relative;
+        }
+        button.fechar{
+            position: absolute;
+            background: none;
+            right: -20px;
+            top: -20px;
+            border:20px solid black;
+            border-radius: 60%;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="logon">
+    <img id="logo_index" src="aniworld_img/logoimg.png">
+    <img id="logo_nome_index " src="aniworld_img/ANIWORLD-logo2.png">
+</div>
+
+<div id="modal-logon" class="mdl-containner">
+    <div id="mdl-inf">
+        <button class="fechar">X</button>
+        <h3>Bem vindo á Guilda ANIWORLD</h3>
+        <button id="mdcadastro">Cadastre-se</button>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>
