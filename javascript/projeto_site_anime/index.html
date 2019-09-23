@@ -4,14 +4,16 @@
 
     <meta charset="UTF-8">
     <title>ANIWORLD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        img#logo_nome_index {
-            position: fixed;
+        div#logon {
+            width: 1366px;
+            height: 768px;
+            position: center;
+
         }
-        body{
-            background:;
-        }
-        button#mdcadastro{
+
+        button#mdcadastro {
             background: darkblue;
             color: white;
             font-size: 20pt;
@@ -20,56 +22,129 @@
             border-radius: 25px;
             border: none;
         }
-        div.mdl-containner{
+
+        div.mdl-containner {
             width: 100vw;
             height: 100vh;
-            background: rgba(0,0,0,.3);
+            background: rgba(0, 0, 0, .3);
             position: fixed;
-            top:0px;
+            top: 0px;
             left: 0px;
             z-index: 3000;
             display: flex;
-            justify-content:center;
+            justify-content: center;
             align-items: center;
         }
-        div#mdl-inf{
-            background:white;
+
+        div.mdl-inf {
+            background: white;
             border-radius: 30px;
             padding: 50px 5px;
-            background-image: url("aniworld_img/MODAL-IMG.png " );
+            background-image: url("aniworld_img/MODAL-IMG.png ");
             background-position: center;
             width: 500px;
             height: 350px;
             font-family: "Bitstream Charter";
             position: relative;
         }
-        button.fechar{
+
+        div#cplog {
+            padding: auto;
+            border-radius: 15px;
+            width: 500px;
+            height: auto;
+            background: black;
+        }
+
+        @keyframes mdl {
+
+            from {
+                opacity: 0;
+                transform: translate3d(0, -70, 0);
+
+            }
+
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        button.fechar {
             position: absolute;
-            background: none;
+            background: black;
             right: -20px;
             top: -20px;
-            border:20px solid black;
+            border: 20px solid black;
             border-radius: 60%;
             color: white;
             cursor: pointer;
         }
+
+        button#mdcadastro {
+            cursor: pointer;
+        }
+
+        .mdl-containner.mostrar {
+            display: none;
+        }
+
+        .mostrar .mdl-inf {
+            animation: mdl .5s;
+        }
     </style>
 </head>
 <body>
-<div id="logon">
-    <img id="logo_index" src="aniworld_img/logoimg.png">
-    <img id="logo_nome_index " src="aniworld_img/ANIWORLD-logo2.png">
+<div id="logon" calss="container">
+    <div id=" apresentação">
+        <img id="logo_index" src="aniworld_img/logoimg.png" style="position: absolute; width: 500px; height: 600px">
+
+        <img id="logo_nome_index " src="aniworld_img/ANIWORLD-logo2.png" style="width: 700px; height: 200px; position: absolute; left: 900px; top:750px">
+        <div id="cplog">
+            <label for="logid">ID: </label>
+            <input type="text" value="ID ou Email" id="logid" placeholder="ID ou e-mail">
+            <label for="pass">Senha</label>
+            <input type="password" minlength="8" placeholder="Senha" id="pass">
+            <a href="controle.php">Esqueceu sua senha?</a>
+            <a href="home.php">
+                <button type="submit">Entrar</button>
+            </a>
+            <a href="cadastro.php">
+                <button type="submit">Cadastrar-se</button>
+            </a>
+        </div>
+    </div>
 </div>
 
-<div id="modal-logon" class="mdl-containner">
-    <div id="mdl-inf">
+<div id="modal-logon" class="mdl-containner ">
+    <div class="mdl-inf">
         <button class="fechar">X</button>
         <h3>Bem vindo á Guilda ANIWORLD</h3>
         <button id="mdcadastro">Cadastre-se</button>
     </div>
 </div>
 <script>
+    function chmodal(mdlid) {
+        var mdl = document.getElementById(mdlid)
+        mdl.classList.add('mostrar')
+        mdl.addEventListener("click", event)
+        if (event.target.id == mdlid || event.target.className == 'fechar') {
+            mdl.classList.add('mostrar')
+
+        }
+
+
+    }
+
+    const fechar = document.getElementById('modal-logon')
+    fechar = addEventListener('click', function () {
+        chmodal('modal-logon')
+    })
+
 
 </script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </body>
 </html>
